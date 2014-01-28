@@ -23,6 +23,26 @@ module Brisk
         end
       end
 
+      def create_and_deliver_password_change!(user, password)
+        Mail.deliver do
+          from    'Monocle <alex@example.com>'
+          to      user.email
+          subject 'Reset your password'
+          body    <<-EOF.dedent
+            Hi there,
+
+            A password change was requested on your behalf. You can login with the password below.
+
+            New Password: #{password}
+
+            Please change the password after logging in.
+
+            Thanks,
+            Admin
+          EOF
+        end
+      end
+
       def user_activate!(user)
         Mail.deliver do
           from    'Monocle <alex@example.com>'

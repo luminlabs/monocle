@@ -2,6 +2,8 @@ $       = jQuery
 Overlay = require('app/controllers/overlay')
 User    = require('app/models/user')
 State   = require('app/state')
+SignUp  = require('app/controllers/users/sign_up')
+SignIn  = require('app/controllers/users/sign_in')
 
 class Authorize extends Overlay
   className: 'users-authorize'
@@ -9,7 +11,9 @@ class Authorize extends Overlay
   constructor: (@callback) ->
     super()
     $(window).on('message', @message)
-    @on('click', 'a[href]', @click)
+    # @on('click', 'a[href]', @click)
+    @on('click', '#signUp', @signUp)
+    @on('click', '#signIn', @signIn)
     @render()
 
   render: =>
@@ -23,6 +27,18 @@ class Authorize extends Overlay
       url, '_blank',
       'width=600,height=500,location=yes,resizable=yes,scrollbars=yes'
     )
+
+  signUp: (e) =>
+    e.preventDefault()
+
+    @close()
+    SignUp.open()
+
+  signIn: (e) =>
+    e.preventDefault()
+
+    @close()
+    SignIn.open()
 
   message: (e) =>
     e = e.originalEvent

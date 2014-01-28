@@ -1,6 +1,7 @@
 Model         = require('model')
 User          = -> require('app/models/user')
 AuthorizeUser = -> require('app/controllers/users/authorize')
+SignIn        = require('app/controllers/users/sign_in')
 Manifesto     = -> require('app/controllers/users/manifesto')
 
 class State extends Model
@@ -9,7 +10,7 @@ class State extends Model
       callback.call(this, user)
     else
       console?.warn('Not logged in')
-      AuthorizeUser().open (user) =>
+      SignIn.open (user) =>
         callback.call(this, user)
 
   withActiveUser: (callback) =>
@@ -32,7 +33,7 @@ class State extends Model
     user = @get('user')
 
     unless user
-      AuthorizeUser().open()
+      SignIn.open()
       return false
 
     unless user.get('manifesto')

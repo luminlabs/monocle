@@ -4,6 +4,17 @@ require 'bcrypt'
 module Brisk
   module Models
     class User < Sequel::Model
+
+      plugin :validation_helpers
+      def validate
+        super
+        validates_unique :email
+
+        set_handles
+        set_secret
+        set_invites_count
+      end
+
       dataset_module do
         def ordered
           order(:created_at.desc)
@@ -83,6 +94,25 @@ module Brisk
         parent && parent.name
       end
 
+      def password=(password)
+        self.encrypted_password = BCrypt::Password.create(password)
+      end
+
+      # assign them a random one and mail it to them, asking them to change it
+      def forgot_password
+        random_password = Array.new(10).map { (65 + rand(58)).chr }.join
+        
+        self.password = random_password
+        self.save!
+        Mailer.create_and_deliver_password_change!(self, random_password)
+      end
+
+      def valid_password?(password)
+        return false if encrypted_password.nil? || encrypted_password.empty?
+        stored_password = BCrypt::Password.new(encrypted_password)
+        stored_password == password
+      end
+
       def increment_invites!(count = 1)
         self.this.update(:invites_count => :invites_count + count)
       end
@@ -108,12 +138,6 @@ module Brisk
       def karma!
         self.this.update(:karma => :karma + 1)
         reload
-      end
-
-      def validate
-        set_handles
-        set_secret
-        set_invites_count
       end
 
       def as_json(options = nil)

@@ -5,7 +5,7 @@
   width: 240px
   background-image: linear-gradient(rgba(255, 255, 255, 0), #f0f2f6 95%, #e5e8ee)
 
-  a.twitter, a.github {
+  a.twitter, a.github, a.email {
     position: relative
     display: block
     width: 130px
@@ -26,6 +26,7 @@
     line-height: 30px
     text-decoration: none
     padding-left: 38px
+    margin-bottom: 10px
 
     &:hover {
       background-image: linear-gradient(rgba(255, 255, 255, 0), rgba(0, 0, 0, 0.15))
@@ -42,7 +43,6 @@
     border: 1px solid rgba(0, 94, 128, 0.8)
     border-bottom-color: #005e80
     border-top-color: rgba(0, 94, 128, 0.6)
-    margin-bottom: 10px
 
     &:active {
       border-bottom-color: rgba(0, 94, 128, 0.6)
@@ -79,6 +79,8 @@
   a.github:before {
     content: url(/assets/github-logo.png)
   }
+
+
 
   // Separator
   a:after {

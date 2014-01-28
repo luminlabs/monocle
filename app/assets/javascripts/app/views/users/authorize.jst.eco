@@ -1,8 +1,17 @@
 <header>
-  <h2>Sign up</h2>
+	<h2>Sign up</h2>
 </header>
 
 <article>
-  <a href="/auth/twitter" class="twitter">Connect with Twitter</a>
-  <a href="/auth/github" class="github">Connect with GitHub</a>
+	<a href="#" class="email" id="signUp">Sign up with Email</a>
+	<a href="/auth/twitter" class="twitter">Connect with Twitter</a>
+	<a href="/auth/github" class="github">Connect with GitHub</a>
+</article>
+
+
+<header>
+	<h2>Sign In</h2>
+</header>
+<article>
+	<a href="#" class="email" id="signIn">Sign In with Email</a>
 </article>
