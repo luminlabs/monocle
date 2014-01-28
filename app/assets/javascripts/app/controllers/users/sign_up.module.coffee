@@ -37,6 +37,7 @@ class SignUp extends Overlay
     user.fromForm(@$form)
     response = user.sign_up()
 
+
     response.fail (jqXHR, textStatus, errorThrown) =>
       @clearValues()
 
