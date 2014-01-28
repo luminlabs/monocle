@@ -1,6 +1,7 @@
 $          = jQuery
 Model      = require('model')
 Collection = require('collection')
+State      = require('app/state')
 Post       = -> require('app/models/post')
 
 class User extends Model
@@ -41,6 +42,32 @@ class User extends Model
       @constructor.uri('register'),
       email: @get('email')
     )
+
+  sign_up: =>
+    @request = $.post(
+      @constructor.uri('create'),
+      email: @get('email'),
+      password: @get('password')
+    )
+
+    @request
+
+  sign_in: =>
+    @request = $.post(
+      @constructor.uri('sign_in'),
+      email: @get('email'),
+      password: @get('password')
+    )
+
+    @request
+
+  forgot_password: =>
+    @request = $.post(
+      @constructor.uri('forgot_password'),
+      email: @get('email')
+    )
+
+    @request
 
   save: =>
     @add()

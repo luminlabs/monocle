@@ -1,0 +1,20 @@
+<header>
+  <h2>Sign Up</h2>
+</header>
+
+<div id="errors" class="hidden">
+	<h4>Uh-oh! Some errors occured</h4>
+	<ul></ul>
+</div>
+
+<form>
+	<article>
+		<input id="email" type="email" name="email" placeholder="test@example.com" autofocus>
+		<input id="password" type="password" name="password" placeholder="password">
+	</article>
+
+	<footer>
+		<button type="submit" class="btn">Sign Up</button>
+	</footer>
+</form>
+

@@ -17,6 +17,44 @@ module Brisk
         halt 422, 'Auth failure'
       end
 
+      post '/v1/users/sign_in' do
+        user = User.find(email: params[:email])
+        if user.valid_password?(params[:password])          
+          self.current_user = user
+          json current_user
+        else
+          error 403, ["invalid credentials"].to_json
+        end
+      end
+
+      post '/v1/users/forgot_password' do
+        unless params[:email].present?
+          error 422
+        else
+          user = User.find(email: params[:email])
+
+          if user
+            user.forgot_password
+            halt 200, ["password reset was sent!"].to_json
+          else 
+            error 422, ["email not found"].to_json
+          end 
+        end
+      end
+
+      post '/v1/users/create' do
+        new_user = User.new(email: params[:email])
+        new_user.password = params[:password]
+        
+        if new_user.valid?
+          new_user.save!
+          self.current_user = new_user
+          json current_user
+        else
+          error 406, new_user.errors.full_messages.to_json
+        end        
+      end
+
       get '/logout' do
         session.destroy
         redirect '/'

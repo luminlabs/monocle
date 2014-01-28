@@ -11,7 +11,8 @@ Sequel.migration do
       column :provider, "text"
       column :handle, "text"
       column :about, "text"
-      column :email, "text"
+      column :email, "text", :unique => true
+      column :encrypted_password, String
       column :url, "text"
       column :twitter, "text"
       column :karma, "integer", :default=>0
