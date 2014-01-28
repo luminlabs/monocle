@@ -19,7 +19,8 @@ module Brisk
 
       post '/v1/users/sign_in' do
         user = User.find(email: params[:email])
-        if user.valid_password?(params[:password])          
+
+        if user && user.valid_password?(params[:password])          
           self.current_user = user
           json current_user
         else
