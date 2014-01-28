@@ -24,7 +24,6 @@ class SignUp extends Overlay
   addErrors: (errors) =>
     @$errors.children("ul").html("")
     for error in errors
-      console.debug(error)
       @$errors.children("ul").append("<li>" + error + "</li>")
 
   clearValues: =>

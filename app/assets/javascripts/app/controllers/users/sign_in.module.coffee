@@ -37,7 +37,6 @@ class SignIn extends Overlay
   addErrors: (errors) =>
     @$errors.children("ul").html("")
     for error in errors
-      console.debug(error)
       @$errors.children("ul").append("<li>" + error + "</li>")
 
   clearValues: =>
@@ -52,16 +51,12 @@ class SignIn extends Overlay
     response = user.sign_in()
 
     response.done (data, textStatus, jqXHR) =>
-      console.debug(data)
-      console.debug(textStatus)
-      console.debug(jqXHR)
       user = new User(data)
       State.set(user: user)
       @close()
 
     response.fail (jqXHR, textStatus, errorThrown) =>
       @clearValues()
-      console.debug(jqXHR)
       errors = JSON.parse(jqXHR.responseText)
       @$errors.show()
       @clearErrors()
