@@ -5,21 +5,22 @@ module Brisk
     module Mailer extend self
       def user_invite!(invite)
         Mail.deliver do
-          from    'Monocle <alex@example.com>'
+          from    'Biotech Pulse <pulse@harlembiospace.com>'
           to      invite.email
           subject "An invitation to join Monocle from #{invite.user_name}."
           body    <<-EOF.dedent
             Hi there,
 
-            #{invite.user_name} has invited you to join Monocle, an upbeat community.
+            #{invite.user_name} has invited you to join Biotech Pulse, a site dedicated to realtime sharing and discussion of articles, events, and resources of interest to biotech entrepreurs.
 
             To learn more, and claim your invitation, visit:
 
-            \thttp://example.com/claim/#{invite.code}
+            thttp://example.com/claim/#{invite.code}
 
-            Thanks,
-            Admin
-          EOF
+            Regards,
+            
+            Harlem Biospace Team
+
         end
       end
 
@@ -51,7 +52,7 @@ module Brisk
           body    <<-EOF.dedent
             Hi there,
 
-            Good news! #{user.parent_name || 'Admin'} has activated your Monocle account.
+            Good news! #{user.parent_name || 'Admin'} has activated your Biotech Pulse account.
 
             Thanks,
             Admin
@@ -61,7 +62,7 @@ module Brisk
 
       def feedback!(text, email = nil)
         Mail.deliver do
-          from    'Monocle <system@example.com>'
+          from    'Biotech Pulse <director@harlembiospace.com>'
           to      'alex@example.com'
           subject 'Monocle Feedback'
           reply_to email if email.present?

@@ -1,9 +1,9 @@
 xml.instruct! :xml, :version => "1.0"
 xml.rss :version => "2.0" do
   xml.channel do
-    xml.title "Monocle News"
-    xml.description "Information for information's sake"
-    xml.link "http://example.com/"
+    xml.title "Biotech Pulse"
+    xml.description "Realtime sharing and discussion of articles, events, and resources of interest to biotech entrepreurs."
+    xml.link "http://news.harlembiospace.com/"
 
     @posts.each do |post|
       xml.item do
