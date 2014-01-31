@@ -4,13 +4,7 @@
 
 <article>
   <p>
-    You've been invited by <strong><%= @invite.get('user_name') %></strong> to join Monocle,
-    a link-sharing network for curious people.
-    The next step is linking either your GitHub or your Twitter account.
+    You've been invited by <strong><%= @invite.get('user_name') %></strong> to join Biotech Pulse, a site dedicated to realtime sharing and discussion of articles, events, and resources of interest to biotech entrepreurs.
   </p>
 
-  <footer>
-    <a href="/auth/twitter" class="twitter">Connect with Twitter</a>
-    <a href="/auth/github" class="github">Connect with GitHub</a>
-  </footer>
 </article>

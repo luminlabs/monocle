@@ -1,5 +1,5 @@
 <header>
-  <img src="/hblogo.jpg">
+  <a href="http://harlembiospace.com"><img src="/hblogo.jpg"></a>
 
   <nav>
     <div class="clip">

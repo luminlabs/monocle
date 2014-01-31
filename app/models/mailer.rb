@@ -7,7 +7,7 @@ module Brisk
         Mail.deliver do
           from    'Biotech Pulse <pulse@harlembiospace.com>'
           to      invite.email
-          subject "An invitation to join Monocle from #{invite.user_name}."
+          subject "An invitation to join Biotech Pulse from #{invite.user_name}."
           body    <<-EOF.dedent
             Hi there,
 
@@ -26,7 +26,7 @@ module Brisk
 
       def create_and_deliver_password_change!(user, password)
         Mail.deliver do
-          from    'Monocle <alex@example.com>'
+          from    'Biotech Pulse <pulse@harlembiospace.com>'
           to      user.email
           subject 'Reset your password'
           body    <<-EOF.dedent
@@ -46,9 +46,9 @@ module Brisk
 
       def user_activate!(user)
         Mail.deliver do
-          from    'Monocle <alex@example.com>'
+          from    'Biotech Pulse <pulse@harlembiospace.com>'
           to      user.email
-          subject 'Welcome to Monocle!'
+          subject 'Welcome to Biotech Pulse!'
           body    <<-EOF.dedent
             Hi there,
 
@@ -63,8 +63,8 @@ module Brisk
       def feedback!(text, email = nil)
         Mail.deliver do
           from    'Biotech Pulse <director@harlembiospace.com>'
-          to      'alex@example.com'
-          subject 'Monocle Feedback'
+          to      'm@harlembiospace.com'
+          subject 'Biotech Pulse Feedback'
           reply_to email if email.present?
           body     text
 
