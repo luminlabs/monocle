@@ -4,7 +4,8 @@
 
 <article>
   <p>
-    You've been invited by <strong><%= @invite.get('user_name') %></strong> to join Biotech Pulse, a site dedicated to realtime sharing and discussion of articles, events, and resources of interest to biotech entrepreurs.
+    You've been invited by <strong><%= @invite.get('user_name') %></strong> to join Biotech Pulse, a site dedicated to realtime sharing and discussion of articles, events, and resources of interest to biotech entrepreneurs.
   </p>
 
 </article>
+

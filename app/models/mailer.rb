@@ -11,7 +11,7 @@ module Brisk
           body    <<-EOF.dedent
             Hi there,
 
-            #{invite.user_name} has invited you to join Biotech Pulse, a site dedicated to realtime sharing and discussion of articles, events, and resources of interest to biotech entrepreurs.
+            #{invite.user_name} has invited you to join Biotech Pulse, a site dedicated to realtime sharing and discussion of articles, events, and resources of interest to biotech entrepreneurs.
 
             To learn more, and claim your invitation, visit:
 
