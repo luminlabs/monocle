@@ -7,7 +7,6 @@
     <input type="url" name="url" placeholder="URL" required autofocus>
     <input type="text" name="title" placeholder="Title" required>
 
-    <p>Posts are lonely without comments &ndash; why not start the discussion?</p>
   </article>
 
   <footer>

@@ -46,7 +46,7 @@ module Brisk
       post '/v1/users/create' do
         new_user = User.new(email: params[:email])
         new_user.password = params[:password]
-        
+        new_user.manifesto = true
         if new_user.valid?
           new_user.save!
           self.current_user = new_user
