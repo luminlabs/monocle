@@ -1,5 +1,25 @@
 @import '../mixins'
 
+.app .sidebar footer .btn.add:after {
+content: '___New Post' !important;
+display: block;
+width: 80px !important;
+height: 14px;
+background-repeat: no-repeat;
+background-image: url("/assets/add-icon.png");
+margin: 5px 9px;
+}
+
+.app .sidebar footer .btn.config:after {
+content: '___Menu' !important;
+display: inline-block;
+width: 60px !important;
+height: 14px;
+background-repeat: no-repeat;
+background-image: url("/assets/config-icon.png");
+margin: 5px 9px;
+}
+
 .app .sidebar {
   position: absolute
   left: 0
