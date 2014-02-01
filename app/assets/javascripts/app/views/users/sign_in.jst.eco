@@ -1,5 +1,5 @@
 <header>
-  <h2>Sign In</h2>
+  <h2>Sign In or Create Account</h2>
 </header>
 
 <div id="errors" class="hidden">
@@ -9,16 +9,18 @@
 
 <form>
 	<article>
+		<strong>If you have an account: </strong><br>
 		<input id="email" type="email" name="email" placeholder="test@example.com" autofocus>
 		<input id="password" type="password" name="password" placeholder="password">
 
-		<a href="#" id="forgotPassword">Forgot Password</a>
+		<a href="#" id="forgotPassword">Forgot Password?</a>
 	</article>
 
 	<footer>
 		<button type="submit" class="btn">Sign In</button>
-		<div class="divider">
-			- or - 
+		<div class="divider"><br>
+		<strong>	- or - <br>
+		First time here and don't have an account yet? </strong><br><br>
 		</div>
 		<button id="signUp" class="btn">Sign Up</button>
 	</footer>

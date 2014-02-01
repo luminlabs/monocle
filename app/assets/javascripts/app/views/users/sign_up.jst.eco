@@ -9,6 +9,9 @@
 
 <form>
 	<article>
+	<p>Enter an email to use as your username (this will not be visible to others) and set your password.</p>
+	</article>
+	<article>
 		<input id="email" type="email" name="email" placeholder="test@example.com" autofocus>
 		<input id="password" type="password" name="password" placeholder="password">
 	</article>
