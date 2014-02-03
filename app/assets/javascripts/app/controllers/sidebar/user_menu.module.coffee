@@ -4,6 +4,7 @@ helpers     = require('app/helpers')
 State       = require('app/state')
 UserProfile = require('app/controllers/users/profile')
 UserInvite  = require('app/controllers/users/invite')
+ChangePassword = require('app/controllers/users/change_password')
 Feedback    = require('app/controllers/feedback')
 
 class UserMenu extends Controller
@@ -16,6 +17,7 @@ class UserMenu extends Controller
     @on('click', 'a[data-name=profile]', @clickProfile)
     @on('click', 'a[data-name=invite]', @clickInvite)
     @on('click', 'a[data-name=feedback]', @clickFeedback)
+    @on('click', 'a[data-name=change_password]', @clickChangePassword)
     @on('click', @cancel)
     @user.observe(@render)
     @render()
@@ -46,6 +48,11 @@ class UserMenu extends Controller
     e.preventDefault()
     @close()
     UserProfile.open(@user)
+
+  clickChangePassword: (e) =>
+    e.preventDefault()
+    @close()
+    ChangePassword.open(@user)
 
   clickInvite: (e) =>
     e.preventDefault()
