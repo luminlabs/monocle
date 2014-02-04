@@ -3,34 +3,35 @@
 --
 
 SET statement_timeout = 0;
+SET lock_timeout = 0;
 SET client_encoding = 'UTF8';
 SET standard_conforming_strings = on;
 SET check_function_bodies = false;
 SET client_min_messages = warning;
 
 --
--- Name: plpgsql; Type: EXTENSION; Schema: -; Owner:
+-- Name: plpgsql; Type: EXTENSION; Schema: -; Owner: 
 --
 
 CREATE EXTENSION IF NOT EXISTS plpgsql WITH SCHEMA pg_catalog;
 
 
 --
--- Name: EXTENSION plpgsql; Type: COMMENT; Schema: -; Owner:
+-- Name: EXTENSION plpgsql; Type: COMMENT; Schema: -; Owner: 
 --
 
 COMMENT ON EXTENSION plpgsql IS 'PL/pgSQL procedural language';
 
 
 --
--- Name: uuid-ossp; Type: EXTENSION; Schema: -; Owner:
+-- Name: uuid-ossp; Type: EXTENSION; Schema: -; Owner: 
 --
 
 CREATE EXTENSION IF NOT EXISTS "uuid-ossp" WITH SCHEMA public;
 
 
 --
--- Name: EXTENSION "uuid-ossp"; Type: COMMENT; Schema: -; Owner:
+-- Name: EXTENSION "uuid-ossp"; Type: COMMENT; Schema: -; Owner: 
 --
 
 COMMENT ON EXTENSION "uuid-ossp" IS 'generate universally unique identifiers (UUIDs)';
@@ -39,7 +40,7 @@ COMMENT ON EXTENSION "uuid-ossp" IS 'generate universally unique identifiers (UU
 SET search_path = public, pg_catalog;
 
 --
--- Name: c_posts_user_handle(); Type: FUNCTION; Schema: public; Owner: Alex
+-- Name: c_posts_user_handle(); Type: FUNCTION; Schema: public; Owner: joel
 --
 
 CREATE FUNCTION c_posts_user_handle() RETURNS trigger
@@ -53,10 +54,10 @@ CREATE FUNCTION c_posts_user_handle() RETURNS trigger
 $$;
 
 
-ALTER FUNCTION public.c_posts_user_handle() OWNER TO "Alex";
+ALTER FUNCTION public.c_posts_user_handle() OWNER TO joel;
 
 --
--- Name: c_posts_voted(); Type: FUNCTION; Schema: public; Owner: Alex
+-- Name: c_posts_voted(); Type: FUNCTION; Schema: public; Owner: joel
 --
 
 CREATE FUNCTION c_posts_voted() RETURNS trigger
@@ -68,10 +69,10 @@ CREATE FUNCTION c_posts_voted() RETURNS trigger
 $$;
 
 
-ALTER FUNCTION public.c_posts_voted() OWNER TO "Alex";
+ALTER FUNCTION public.c_posts_voted() OWNER TO joel;
 
 --
--- Name: cc_posts_comments_count(); Type: FUNCTION; Schema: public; Owner: Alex
+-- Name: cc_posts_comments_count(); Type: FUNCTION; Schema: public; Owner: joel
 --
 
 CREATE FUNCTION cc_posts_comments_count() RETURNS trigger
@@ -88,14 +89,14 @@ CREATE FUNCTION cc_posts_comments_count() RETURNS trigger
 $$;
 
 
-ALTER FUNCTION public.cc_posts_comments_count() OWNER TO "Alex";
+ALTER FUNCTION public.cc_posts_comments_count() OWNER TO joel;
 
 SET default_tablespace = '';
 
 SET default_with_oids = false;
 
 --
--- Name: comment_votes; Type: TABLE; Schema: public; Owner: Alex; Tablespace:
+-- Name: comment_votes; Type: TABLE; Schema: public; Owner: joel; Tablespace: 
 --
 
 CREATE TABLE comment_votes (
@@ -108,10 +109,10 @@ CREATE TABLE comment_votes (
 );
 
 
-ALTER TABLE public.comment_votes OWNER TO "Alex";
+ALTER TABLE public.comment_votes OWNER TO joel;
 
 --
--- Name: comment_votes_iid_seq; Type: SEQUENCE; Schema: public; Owner: Alex
+-- Name: comment_votes_iid_seq; Type: SEQUENCE; Schema: public; Owner: joel
 --
 
 CREATE SEQUENCE comment_votes_iid_seq
@@ -122,17 +123,17 @@ CREATE SEQUENCE comment_votes_iid_seq
     CACHE 1;
 
 
-ALTER TABLE public.comment_votes_iid_seq OWNER TO "Alex";
+ALTER TABLE public.comment_votes_iid_seq OWNER TO joel;
 
 --
--- Name: comment_votes_iid_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: Alex
+-- Name: comment_votes_iid_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: joel
 --
 
 ALTER SEQUENCE comment_votes_iid_seq OWNED BY comment_votes.iid;
 
 
 --
--- Name: comments; Type: TABLE; Schema: public; Owner: Alex; Tablespace:
+-- Name: comments; Type: TABLE; Schema: public; Owner: joel; Tablespace: 
 --
 
 CREATE TABLE comments (
@@ -149,10 +150,10 @@ CREATE TABLE comments (
 );
 
 
-ALTER TABLE public.comments OWNER TO "Alex";
+ALTER TABLE public.comments OWNER TO joel;
 
 --
--- Name: comments_iid_seq; Type: SEQUENCE; Schema: public; Owner: Alex
+-- Name: comments_iid_seq; Type: SEQUENCE; Schema: public; Owner: joel
 --
 
 CREATE SEQUENCE comments_iid_seq
@@ -163,17 +164,17 @@ CREATE SEQUENCE comments_iid_seq
     CACHE 1;
 
 
-ALTER TABLE public.comments_iid_seq OWNER TO "Alex";
+ALTER TABLE public.comments_iid_seq OWNER TO joel;
 
 --
--- Name: comments_iid_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: Alex
+-- Name: comments_iid_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: joel
 --
 
 ALTER SEQUENCE comments_iid_seq OWNED BY comments.iid;
 
 
 --
--- Name: post_visits; Type: TABLE; Schema: public; Owner: Alex; Tablespace:
+-- Name: post_visits; Type: TABLE; Schema: public; Owner: joel; Tablespace: 
 --
 
 CREATE TABLE post_visits (
@@ -186,10 +187,10 @@ CREATE TABLE post_visits (
 );
 
 
-ALTER TABLE public.post_visits OWNER TO "Alex";
+ALTER TABLE public.post_visits OWNER TO joel;
 
 --
--- Name: post_visits_iid_seq; Type: SEQUENCE; Schema: public; Owner: Alex
+-- Name: post_visits_iid_seq; Type: SEQUENCE; Schema: public; Owner: joel
 --
 
 CREATE SEQUENCE post_visits_iid_seq
@@ -200,17 +201,17 @@ CREATE SEQUENCE post_visits_iid_seq
     CACHE 1;
 
 
-ALTER TABLE public.post_visits_iid_seq OWNER TO "Alex";
+ALTER TABLE public.post_visits_iid_seq OWNER TO joel;
 
 --
--- Name: post_visits_iid_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: Alex
+-- Name: post_visits_iid_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: joel
 --
 
 ALTER SEQUENCE post_visits_iid_seq OWNED BY post_visits.iid;
 
 
 --
--- Name: post_votes; Type: TABLE; Schema: public; Owner: Alex; Tablespace:
+-- Name: post_votes; Type: TABLE; Schema: public; Owner: joel; Tablespace: 
 --
 
 CREATE TABLE post_votes (
@@ -223,10 +224,10 @@ CREATE TABLE post_votes (
 );
 
 
-ALTER TABLE public.post_votes OWNER TO "Alex";
+ALTER TABLE public.post_votes OWNER TO joel;
 
 --
--- Name: post_votes_iid_seq; Type: SEQUENCE; Schema: public; Owner: Alex
+-- Name: post_votes_iid_seq; Type: SEQUENCE; Schema: public; Owner: joel
 --
 
 CREATE SEQUENCE post_votes_iid_seq
@@ -237,17 +238,17 @@ CREATE SEQUENCE post_votes_iid_seq
     CACHE 1;
 
 
-ALTER TABLE public.post_votes_iid_seq OWNER TO "Alex";
+ALTER TABLE public.post_votes_iid_seq OWNER TO joel;
 
 --
--- Name: post_votes_iid_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: Alex
+-- Name: post_votes_iid_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: joel
 --
 
 ALTER SEQUENCE post_votes_iid_seq OWNED BY post_votes.iid;
 
 
 --
--- Name: posts; Type: TABLE; Schema: public; Owner: Alex; Tablespace:
+-- Name: posts; Type: TABLE; Schema: public; Owner: joel; Tablespace: 
 --
 
 CREATE TABLE posts (
@@ -270,7 +271,6 @@ CREATE TABLE posts (
     body text,
     summary text,
     tweet_id text,
-    scheduled_at timestamp without time zone,
     published_at timestamp without time zone,
     comment_count integer DEFAULT 0 NOT NULL,
     comments_count integer DEFAULT 0 NOT NULL,
@@ -280,10 +280,10 @@ CREATE TABLE posts (
 );
 
 
-ALTER TABLE public.posts OWNER TO "Alex";
+ALTER TABLE public.posts OWNER TO joel;
 
 --
--- Name: posts_iid_seq; Type: SEQUENCE; Schema: public; Owner: Alex
+-- Name: posts_iid_seq; Type: SEQUENCE; Schema: public; Owner: joel
 --
 
 CREATE SEQUENCE posts_iid_seq
@@ -294,17 +294,17 @@ CREATE SEQUENCE posts_iid_seq
     CACHE 1;
 
 
-ALTER TABLE public.posts_iid_seq OWNER TO "Alex";
+ALTER TABLE public.posts_iid_seq OWNER TO joel;
 
 --
--- Name: posts_iid_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: Alex
+-- Name: posts_iid_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: joel
 --
 
 ALTER SEQUENCE posts_iid_seq OWNED BY posts.iid;
 
 
 --
--- Name: schema_info; Type: TABLE; Schema: public; Owner: Alex; Tablespace:
+-- Name: schema_info; Type: TABLE; Schema: public; Owner: joel; Tablespace: 
 --
 
 CREATE TABLE schema_info (
@@ -312,10 +312,10 @@ CREATE TABLE schema_info (
 );
 
 
-ALTER TABLE public.schema_info OWNER TO "Alex";
+ALTER TABLE public.schema_info OWNER TO joel;
 
 --
--- Name: user_invites; Type: TABLE; Schema: public; Owner: Alex; Tablespace:
+-- Name: user_invites; Type: TABLE; Schema: public; Owner: joel; Tablespace: 
 --
 
 CREATE TABLE user_invites (
@@ -332,10 +332,10 @@ CREATE TABLE user_invites (
 );
 
 
-ALTER TABLE public.user_invites OWNER TO "Alex";
+ALTER TABLE public.user_invites OWNER TO joel;
 
 --
--- Name: user_invites_iid_seq; Type: SEQUENCE; Schema: public; Owner: Alex
+-- Name: user_invites_iid_seq; Type: SEQUENCE; Schema: public; Owner: joel
 --
 
 CREATE SEQUENCE user_invites_iid_seq
@@ -346,17 +346,17 @@ CREATE SEQUENCE user_invites_iid_seq
     CACHE 1;
 
 
-ALTER TABLE public.user_invites_iid_seq OWNER TO "Alex";
+ALTER TABLE public.user_invites_iid_seq OWNER TO joel;
 
 --
--- Name: user_invites_iid_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: Alex
+-- Name: user_invites_iid_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: joel
 --
 
 ALTER SEQUENCE user_invites_iid_seq OWNED BY user_invites.iid;
 
 
 --
--- Name: users; Type: TABLE; Schema: public; Owner: Alex; Tablespace:
+-- Name: users; Type: TABLE; Schema: public; Owner: joel; Tablespace: 
 --
 
 CREATE TABLE users (
@@ -367,6 +367,7 @@ CREATE TABLE users (
     handle text,
     about text,
     email text,
+    encrypted_password text,
     url text,
     twitter text,
     karma integer DEFAULT 0,
@@ -384,10 +385,10 @@ CREATE TABLE users (
 );
 
 
-ALTER TABLE public.users OWNER TO "Alex";
+ALTER TABLE public.users OWNER TO joel;
 
 --
--- Name: users_iid_seq; Type: SEQUENCE; Schema: public; Owner: Alex
+-- Name: users_iid_seq; Type: SEQUENCE; Schema: public; Owner: joel
 --
 
 CREATE SEQUENCE users_iid_seq
@@ -398,66 +399,66 @@ CREATE SEQUENCE users_iid_seq
     CACHE 1;
 
 
-ALTER TABLE public.users_iid_seq OWNER TO "Alex";
+ALTER TABLE public.users_iid_seq OWNER TO joel;
 
 --
--- Name: users_iid_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: Alex
+-- Name: users_iid_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: joel
 --
 
 ALTER SEQUENCE users_iid_seq OWNED BY users.iid;
 
 
 --
--- Name: iid; Type: DEFAULT; Schema: public; Owner: Alex
+-- Name: iid; Type: DEFAULT; Schema: public; Owner: joel
 --
 
 ALTER TABLE ONLY comment_votes ALTER COLUMN iid SET DEFAULT nextval('comment_votes_iid_seq'::regclass);
 
 
 --
--- Name: iid; Type: DEFAULT; Schema: public; Owner: Alex
+-- Name: iid; Type: DEFAULT; Schema: public; Owner: joel
 --
 
 ALTER TABLE ONLY comments ALTER COLUMN iid SET DEFAULT nextval('comments_iid_seq'::regclass);
 
 
 --
--- Name: iid; Type: DEFAULT; Schema: public; Owner: Alex
+-- Name: iid; Type: DEFAULT; Schema: public; Owner: joel
 --
 
 ALTER TABLE ONLY post_visits ALTER COLUMN iid SET DEFAULT nextval('post_visits_iid_seq'::regclass);
 
 
 --
--- Name: iid; Type: DEFAULT; Schema: public; Owner: Alex
+-- Name: iid; Type: DEFAULT; Schema: public; Owner: joel
 --
 
 ALTER TABLE ONLY post_votes ALTER COLUMN iid SET DEFAULT nextval('post_votes_iid_seq'::regclass);
 
 
 --
--- Name: iid; Type: DEFAULT; Schema: public; Owner: Alex
+-- Name: iid; Type: DEFAULT; Schema: public; Owner: joel
 --
 
 ALTER TABLE ONLY posts ALTER COLUMN iid SET DEFAULT nextval('posts_iid_seq'::regclass);
 
 
 --
--- Name: iid; Type: DEFAULT; Schema: public; Owner: Alex
+-- Name: iid; Type: DEFAULT; Schema: public; Owner: joel
 --
 
 ALTER TABLE ONLY user_invites ALTER COLUMN iid SET DEFAULT nextval('user_invites_iid_seq'::regclass);
 
 
 --
--- Name: iid; Type: DEFAULT; Schema: public; Owner: Alex
+-- Name: iid; Type: DEFAULT; Schema: public; Owner: joel
 --
 
 ALTER TABLE ONLY users ALTER COLUMN iid SET DEFAULT nextval('users_iid_seq'::regclass);
 
 
 --
--- Name: comment_votes_pkey; Type: CONSTRAINT; Schema: public; Owner: Alex; Tablespace:
+-- Name: comment_votes_pkey; Type: CONSTRAINT; Schema: public; Owner: joel; Tablespace: 
 --
 
 ALTER TABLE ONLY comment_votes
@@ -465,7 +466,7 @@ ALTER TABLE ONLY comment_votes
 
 
 --
--- Name: comments_pkey; Type: CONSTRAINT; Schema: public; Owner: Alex; Tablespace:
+-- Name: comments_pkey; Type: CONSTRAINT; Schema: public; Owner: joel; Tablespace: 
 --
 
 ALTER TABLE ONLY comments
@@ -473,7 +474,7 @@ ALTER TABLE ONLY comments
 
 
 --
--- Name: post_visits_pkey; Type: CONSTRAINT; Schema: public; Owner: Alex; Tablespace:
+-- Name: post_visits_pkey; Type: CONSTRAINT; Schema: public; Owner: joel; Tablespace: 
 --
 
 ALTER TABLE ONLY post_visits
@@ -481,7 +482,7 @@ ALTER TABLE ONLY post_visits
 
 
 --
--- Name: post_votes_pkey; Type: CONSTRAINT; Schema: public; Owner: Alex; Tablespace:
+-- Name: post_votes_pkey; Type: CONSTRAINT; Schema: public; Owner: joel; Tablespace: 
 --
 
 ALTER TABLE ONLY post_votes
@@ -489,7 +490,7 @@ ALTER TABLE ONLY post_votes
 
 
 --
--- Name: posts_pkey; Type: CONSTRAINT; Schema: public; Owner: Alex; Tablespace:
+-- Name: posts_pkey; Type: CONSTRAINT; Schema: public; Owner: joel; Tablespace: 
 --
 
 ALTER TABLE ONLY posts
@@ -497,7 +498,7 @@ ALTER TABLE ONLY posts
 
 
 --
--- Name: user_invites_pkey; Type: CONSTRAINT; Schema: public; Owner: Alex; Tablespace:
+-- Name: user_invites_pkey; Type: CONSTRAINT; Schema: public; Owner: joel; Tablespace: 
 --
 
 ALTER TABLE ONLY user_invites
@@ -505,7 +506,23 @@ ALTER TABLE ONLY user_invites
 
 
 --
--- Name: users_pkey; Type: CONSTRAINT; Schema: public; Owner: Alex; Tablespace:
+-- Name: users_email_key; Type: CONSTRAINT; Schema: public; Owner: joel; Tablespace: 
+--
+
+ALTER TABLE ONLY users
+    ADD CONSTRAINT users_email_key UNIQUE (email);
+
+
+--
+-- Name: users_handle_key; Type: CONSTRAINT; Schema: public; Owner: joel; Tablespace: 
+--
+
+ALTER TABLE ONLY users
+    ADD CONSTRAINT users_handle_key UNIQUE (handle);
+
+
+--
+-- Name: users_pkey; Type: CONSTRAINT; Schema: public; Owner: joel; Tablespace: 
 --
 
 ALTER TABLE ONLY users
@@ -513,140 +530,140 @@ ALTER TABLE ONLY users
 
 
 --
--- Name: comment_votes_comment_id_index; Type: INDEX; Schema: public; Owner: Alex; Tablespace:
+-- Name: comment_votes_comment_id_index; Type: INDEX; Schema: public; Owner: joel; Tablespace: 
 --
 
 CREATE INDEX comment_votes_comment_id_index ON comment_votes USING btree (comment_id);
 
 
 --
--- Name: comment_votes_user_id_index; Type: INDEX; Schema: public; Owner: Alex; Tablespace:
+-- Name: comment_votes_user_id_index; Type: INDEX; Schema: public; Owner: joel; Tablespace: 
 --
 
 CREATE INDEX comment_votes_user_id_index ON comment_votes USING btree (user_id);
 
 
 --
--- Name: comments_iid_index; Type: INDEX; Schema: public; Owner: Alex; Tablespace:
+-- Name: comments_iid_index; Type: INDEX; Schema: public; Owner: joel; Tablespace: 
 --
 
 CREATE UNIQUE INDEX comments_iid_index ON comments USING btree (iid);
 
 
 --
--- Name: post_visits_post_id_index; Type: INDEX; Schema: public; Owner: Alex; Tablespace:
+-- Name: post_visits_post_id_index; Type: INDEX; Schema: public; Owner: joel; Tablespace: 
 --
 
 CREATE INDEX post_visits_post_id_index ON post_visits USING btree (post_id);
 
 
 --
--- Name: post_visits_user_id_index; Type: INDEX; Schema: public; Owner: Alex; Tablespace:
+-- Name: post_visits_user_id_index; Type: INDEX; Schema: public; Owner: joel; Tablespace: 
 --
 
 CREATE INDEX post_visits_user_id_index ON post_visits USING btree (user_id);
 
 
 --
--- Name: post_votes_post_id_index; Type: INDEX; Schema: public; Owner: Alex; Tablespace:
+-- Name: post_votes_post_id_index; Type: INDEX; Schema: public; Owner: joel; Tablespace: 
 --
 
 CREATE INDEX post_votes_post_id_index ON post_votes USING btree (post_id);
 
 
 --
--- Name: post_votes_user_id_index; Type: INDEX; Schema: public; Owner: Alex; Tablespace:
+-- Name: post_votes_user_id_index; Type: INDEX; Schema: public; Owner: joel; Tablespace: 
 --
 
 CREATE INDEX post_votes_user_id_index ON post_votes USING btree (user_id);
 
 
 --
--- Name: posts_iid_index; Type: INDEX; Schema: public; Owner: Alex; Tablespace:
+-- Name: posts_iid_index; Type: INDEX; Schema: public; Owner: joel; Tablespace: 
 --
 
 CREATE UNIQUE INDEX posts_iid_index ON posts USING btree (iid);
 
 
 --
--- Name: posts_published_at_index; Type: INDEX; Schema: public; Owner: Alex; Tablespace:
+-- Name: posts_published_at_index; Type: INDEX; Schema: public; Owner: joel; Tablespace: 
 --
 
 CREATE INDEX posts_published_at_index ON posts USING btree (published_at);
 
 
 --
--- Name: posts_slug_index; Type: INDEX; Schema: public; Owner: Alex; Tablespace:
+-- Name: posts_slug_index; Type: INDEX; Schema: public; Owner: joel; Tablespace: 
 --
 
 CREATE UNIQUE INDEX posts_slug_index ON posts USING btree (slug);
 
 
 --
--- Name: posts_user_id_index; Type: INDEX; Schema: public; Owner: Alex; Tablespace:
+-- Name: posts_user_id_index; Type: INDEX; Schema: public; Owner: joel; Tablespace: 
 --
 
 CREATE INDEX posts_user_id_index ON posts USING btree (user_id);
 
 
 --
--- Name: user_invites_code_key; Type: INDEX; Schema: public; Owner: Alex; Tablespace:
+-- Name: user_invites_code_key; Type: INDEX; Schema: public; Owner: joel; Tablespace: 
 --
 
 CREATE UNIQUE INDEX user_invites_code_key ON user_invites USING btree (code);
 
 
 --
--- Name: user_invites_user_id_index; Type: INDEX; Schema: public; Owner: Alex; Tablespace:
+-- Name: user_invites_user_id_index; Type: INDEX; Schema: public; Owner: joel; Tablespace: 
 --
 
 CREATE INDEX user_invites_user_id_index ON user_invites USING btree (user_id);
 
 
 --
--- Name: users_handle_index; Type: INDEX; Schema: public; Owner: Alex; Tablespace:
+-- Name: users_handle_index; Type: INDEX; Schema: public; Owner: joel; Tablespace: 
 --
 
 CREATE INDEX users_handle_index ON users USING btree (handle);
 
 
 --
--- Name: users_iid_index; Type: INDEX; Schema: public; Owner: Alex; Tablespace:
+-- Name: users_iid_index; Type: INDEX; Schema: public; Owner: joel; Tablespace: 
 --
 
 CREATE UNIQUE INDEX users_iid_index ON users USING btree (iid);
 
 
 --
--- Name: users_uid_index; Type: INDEX; Schema: public; Owner: Alex; Tablespace:
+-- Name: users_uid_index; Type: INDEX; Schema: public; Owner: joel; Tablespace: 
 --
 
 CREATE UNIQUE INDEX users_uid_index ON users USING btree (uid);
 
 
 --
--- Name: pgt_cc_posts__id__comments_count__post_id; Type: TRIGGER; Schema: public; Owner: Alex
+-- Name: pgt_cc_posts__id__comments_count__post_id; Type: TRIGGER; Schema: public; Owner: joel
 --
 
 CREATE TRIGGER pgt_cc_posts__id__comments_count__post_id BEFORE INSERT OR DELETE ON comments FOR EACH ROW EXECUTE PROCEDURE cc_posts_comments_count();
 
 
 --
--- Name: trg_posts_user_handle; Type: TRIGGER; Schema: public; Owner: Alex
+-- Name: trg_posts_user_handle; Type: TRIGGER; Schema: public; Owner: joel
 --
 
 CREATE TRIGGER trg_posts_user_handle BEFORE UPDATE ON users FOR EACH ROW EXECUTE PROCEDURE c_posts_user_handle();
 
 
 --
--- Name: trg_posts_voted; Type: TRIGGER; Schema: public; Owner: Alex
+-- Name: trg_posts_voted; Type: TRIGGER; Schema: public; Owner: joel
 --
 
 CREATE TRIGGER trg_posts_voted BEFORE INSERT ON post_votes FOR EACH ROW EXECUTE PROCEDURE c_posts_voted();
 
 
 --
--- Name: comment_votes_comment_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: Alex
+-- Name: comment_votes_comment_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: joel
 --
 
 ALTER TABLE ONLY comment_votes
@@ -654,7 +671,7 @@ ALTER TABLE ONLY comment_votes
 
 
 --
--- Name: comment_votes_user_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: Alex
+-- Name: comment_votes_user_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: joel
 --
 
 ALTER TABLE ONLY comment_votes
@@ -662,7 +679,7 @@ ALTER TABLE ONLY comment_votes
 
 
 --
--- Name: comments_parent_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: Alex
+-- Name: comments_parent_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: joel
 --
 
 ALTER TABLE ONLY comments
@@ -670,7 +687,7 @@ ALTER TABLE ONLY comments
 
 
 --
--- Name: comments_post_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: Alex
+-- Name: comments_post_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: joel
 --
 
 ALTER TABLE ONLY comments
@@ -678,7 +695,7 @@ ALTER TABLE ONLY comments
 
 
 --
--- Name: comments_user_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: Alex
+-- Name: comments_user_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: joel
 --
 
 ALTER TABLE ONLY comments
@@ -686,7 +703,7 @@ ALTER TABLE ONLY comments
 
 
 --
--- Name: post_visits_post_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: Alex
+-- Name: post_visits_post_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: joel
 --
 
 ALTER TABLE ONLY post_visits
@@ -694,7 +711,7 @@ ALTER TABLE ONLY post_visits
 
 
 --
--- Name: post_visits_user_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: Alex
+-- Name: post_visits_user_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: joel
 --
 
 ALTER TABLE ONLY post_visits
@@ -702,7 +719,7 @@ ALTER TABLE ONLY post_visits
 
 
 --
--- Name: post_votes_post_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: Alex
+-- Name: post_votes_post_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: joel
 --
 
 ALTER TABLE ONLY post_votes
@@ -710,7 +727,7 @@ ALTER TABLE ONLY post_votes
 
 
 --
--- Name: post_votes_user_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: Alex
+-- Name: post_votes_user_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: joel
 --
 
 ALTER TABLE ONLY post_votes
@@ -718,7 +735,7 @@ ALTER TABLE ONLY post_votes
 
 
 --
--- Name: posts_user_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: Alex
+-- Name: posts_user_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: joel
 --
 
 ALTER TABLE ONLY posts
@@ -726,7 +743,7 @@ ALTER TABLE ONLY posts
 
 
 --
--- Name: user_invites_invited_user_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: Alex
+-- Name: user_invites_invited_user_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: joel
 --
 
 ALTER TABLE ONLY user_invites
@@ -734,7 +751,7 @@ ALTER TABLE ONLY user_invites
 
 
 --
--- Name: user_invites_user_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: Alex
+-- Name: user_invites_user_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: joel
 --
 
 ALTER TABLE ONLY user_invites
@@ -742,7 +759,7 @@ ALTER TABLE ONLY user_invites
 
 
 --
--- Name: users_parent_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: Alex
+-- Name: users_parent_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: joel
 --
 
 ALTER TABLE ONLY users
@@ -750,12 +767,12 @@ ALTER TABLE ONLY users
 
 
 --
--- Name: public; Type: ACL; Schema: -; Owner: Alex
+-- Name: public; Type: ACL; Schema: -; Owner: joel
 --
 
 REVOKE ALL ON SCHEMA public FROM PUBLIC;
-REVOKE ALL ON SCHEMA public FROM "Alex";
-GRANT ALL ON SCHEMA public TO "Alex";
+REVOKE ALL ON SCHEMA public FROM joel;
+GRANT ALL ON SCHEMA public TO joel;
 GRANT ALL ON SCHEMA public TO PUBLIC;
 
 
