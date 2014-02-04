@@ -28,6 +28,28 @@ module Brisk
         end
       end
 
+      post '/v1/users/change_password' do
+        user = User.find(id: params[:user_id])
+
+        passwords_match = params[:new_password] == params[:confirm_new_password]
+
+        if user && passwords_match
+          if user.valid_password?(params[:current_password]) 
+            user.password = params[:new_password]
+            
+            if user.save!
+              halt 200, ["Password was reset successfully!"]
+            else
+              halt 422, ["An error occurred while resetting your password."]
+            end
+          else
+            halt 403, ["current password was incorrect"].to_json
+          end
+        else
+          halt 422, ["New password and confirmation did not match!"].to_json
+        end
+      end
+
       post '/v1/users/forgot_password' do
         unless params[:email].present?
           error 422

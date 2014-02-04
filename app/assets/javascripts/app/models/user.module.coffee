@@ -69,6 +69,17 @@ class User extends Model
 
     @request
 
+  change_password: (current_password, new_password, confirm_new_password) =>
+    @request = $.post(
+      @constructor.uri('change_password'),
+      user_id: @get('id')
+      current_password: current_password,
+      new_password: new_password,
+      confirm_new_password: confirm_new_password
+    )
+
+    @request
+
   save: =>
     @add()
     @request = @set $.ajax

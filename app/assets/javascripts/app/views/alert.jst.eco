@@ -1,0 +1,11 @@
+<header>
+  <h2 data-name="title"></h2>
+</header>
+
+<article>
+	<p  data-name="message"></p>
+</article>
+
+<footer>
+	<button id="dismiss" class="btn">Ok</button>
+</footer>
