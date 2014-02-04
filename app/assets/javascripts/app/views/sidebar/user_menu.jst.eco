@@ -7,8 +7,10 @@
   </a>
 </li>
 
+
 <li><a data-name="feedback">Feedback</a></li>
 
 <li class="divider"></li>
+<li><a data-name="change_password">Change Password</a></li>
 
 <li><a href="/logout">Logout</a></li>
