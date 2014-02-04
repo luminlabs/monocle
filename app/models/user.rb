@@ -9,6 +9,8 @@ module Brisk
       def validate
         super
         validates_unique :email
+        validates_format /^[a-z0-9_-]{3,16}$/, :handle, message: "Invalid username specified. Must be shorter than 16 characters and cannot contain spaces."
+        validates_unique :handle, message: "Username is already taken."
 
         set_handles
         set_secret
@@ -51,6 +53,10 @@ module Brisk
 
       def self.find_by_uid(uid)
         first(uid: uid)
+      end
+
+      def self.find_by_email_or_handle(email_or_handle)
+        find(email: email_or_handle) || find(handle: email_or_handle)
       end
 
       def self.from_auth!(auth)

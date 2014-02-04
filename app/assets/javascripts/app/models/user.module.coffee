@@ -47,6 +47,7 @@ class User extends Model
     @request = $.post(
       @constructor.uri('create'),
       email: @get('email'),
+      handle: @get('handle'),
       password: @get('password')
     )
 
@@ -55,7 +56,7 @@ class User extends Model
   sign_in: =>
     @request = $.post(
       @constructor.uri('sign_in'),
-      email: @get('email'),
+      email_or_handle: @get('email_or_handle'),
       password: @get('password')
     )
 
