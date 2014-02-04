@@ -18,7 +18,7 @@ module Brisk
       end
 
       post '/v1/users/sign_in' do
-        user = User.find(email: params[:email])
+        user = User.find_by_email_or_handle( params[:email_or_handle] )
 
         if user && user.valid_password?(params[:password])          
           self.current_user = user
@@ -44,7 +44,7 @@ module Brisk
       end
 
       post '/v1/users/create' do
-        new_user = User.new(email: params[:email])
+        new_user = User.new(email: params[:email], handle: params[:handle])
         new_user.password = params[:password]
         new_user.manifesto = true
         if new_user.valid?

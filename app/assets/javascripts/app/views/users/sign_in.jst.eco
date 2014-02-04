@@ -10,7 +10,7 @@
 <form>
 	<article>
 		<strong>If you have an account: </strong><br>
-		<input id="email" type="email" name="email" placeholder="test@example.com" autofocus>
+		<input id="email_or_handle" type="text" name="email_or_handle" placeholder="email or username" autofocus>
 		<input id="password" type="password" name="password" placeholder="password">
 
 		<a href="#" id="forgotPassword">Forgot Password?</a>
