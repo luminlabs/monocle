@@ -3,13 +3,13 @@
 </header>
 
 <div id="errors" class="hidden">
-	<h4>Uh-oh! Some errors occured</h4>
+	<h4>Some errors occured:</h4>
 	<ul></ul>
 </div>
 
 <form>
 	<article>
-	<p>Enter an email to use as your username (this will not be visible to others) and set your password.</p>
+	<p>Pick a username, enter an email for notifications and password resets (this will not be visible to others), and set your password.</p>
 	</article>
 	<article>
 		<input id="username" 
