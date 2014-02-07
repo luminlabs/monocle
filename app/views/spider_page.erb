@@ -2,7 +2,6 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <meta name="keywords" content="monocle,news,tech">
   <meta name="description" content="<%= (@post.summary || 'Monocle').truncate(150) %>">
 
   <title><%= @post.title %></title>
@@ -13,8 +12,9 @@
   <p>
     <%= @post.summary %>
     <a href="<%= @post.url %>">Read more</a>
-  </p>
 
+  </p>
+ 
   <% @post.comments.each do |comment| %>
     <section>
       <header><%= comment.user_handle %></header>
@@ -22,5 +22,6 @@
       <%== comment.formatted_body %>
     </section>
   <% end %>
+  
 </body>
 </html>

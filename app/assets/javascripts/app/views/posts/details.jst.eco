@@ -1,3 +1,4 @@
+<?php header('X-Frame-Options: GOFORIT'); ?>
 <% if @post.get('icon'): %>
   <a class="icon" href="<%= @post.get('url') %>">
     <img src="<%= @post.get('icon') %>">
@@ -6,7 +7,7 @@
 
 <section>
   <h1 class="title">
-    <a href="<%= @post.get('url') %>"><%= @post.get('title') %></a>
+     <a href="<%= @post.get('url') %>"><%= @post.get('title') %></a>
   </h1>
 
   <div class="meta">
@@ -36,4 +37,8 @@
       <%= @post.truncatedSummary(500) %>
     </p>
   <% end %>
+
+  <iframe id="theFrame" src="http://www.google.com" style="width:100%;" frameborder="0">
+</iframe>
+
 </section>
