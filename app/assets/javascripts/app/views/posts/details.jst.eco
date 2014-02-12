@@ -1,13 +1,13 @@
 <?php header('X-Frame-Options: GOFORIT'); ?>
 <% if @post.get('icon'): %>
-  <a class="icon" href="<%= @post.get('url') %>">
+  <a class="icon" href="<%= @post.get('url') %>" target="_blank">
     <img src="<%= @post.get('icon') %>">
   </a>
 <% end %>
 
 <section>
   <h1 class="title">
-     <a href="<%= @post.get('url') %>"><%= @post.get('title') %></a>
+     <a href="<%= @post.get('url') %>" target="_blank"><%= @post.get('title') %></a>
   </h1>
 
   <div class="meta">
@@ -16,7 +16,7 @@
     </span>
 
     <span class="meta-point domain">
-      <a href="<%= @post.get('url') %>">
+      <a href="<%= @post.get('url') %>" target="_blank">
         <%= @post.get('domain') %>
       </a>
     </span>
