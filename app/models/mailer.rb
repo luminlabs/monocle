@@ -20,7 +20,7 @@ module Brisk
             Regards,
             
             Harlem Biospace Team
-
+            EOF
         end
       end
 
