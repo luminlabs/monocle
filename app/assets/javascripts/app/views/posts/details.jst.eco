@@ -1,4 +1,4 @@
-<?php header('X-Frame-Options: GOFORIT'); ?>
+
 <% if @post.get('icon'): %>
   <a class="icon" href="<%= @post.get('url') %>" target="_blank">
     <img src="<%= @post.get('icon') %>">
