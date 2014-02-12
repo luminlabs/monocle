@@ -42,7 +42,7 @@ pluralize = (word, number = 1) ->
 
 crop = (url, width, height) ->
   url = url.replace(/^https?:\/\//, '')
-  "//assets.example.com/crop/#{width}x#{height}/#{url}"
+  "//news.harlembiospace.com/crop/#{width}x#{height}/#{url}"
 
 createFragment = (value, element = document.createElement('div')) ->
   return value if value instanceof DocumentFragment
