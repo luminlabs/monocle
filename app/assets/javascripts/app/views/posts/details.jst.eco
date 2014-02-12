@@ -38,7 +38,6 @@
     </p>
   <% end %>
 
-  <iframe id="theFrame" src="http://www.google.com" style="width:100%;" frameborder="0">
-</iframe>
+  
 
 </section>
