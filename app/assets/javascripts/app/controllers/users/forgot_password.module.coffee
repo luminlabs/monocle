@@ -36,7 +36,7 @@ class ForgotPassword extends Overlay
     response = user.forgot_password()
 
     response.fail (jqXHR, textStatus, errorThrown) =>
-      alert("password reset failed")
+      alert("Email has been sent if account exists")
       @close()
 
     # Ideally this would present another overlay or maybe just replace the reset password box
