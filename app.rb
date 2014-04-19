@@ -25,6 +25,9 @@ require 'app/extensions'
 require 'app/routes'
 require 'mail'
 
+require 'rack-google-analytics'
+use Rack::GoogleAnalytics, :tracker => 'UA-49704815-1'
+
 module Brisk
   class App < Sinatra::Application
     configure do
