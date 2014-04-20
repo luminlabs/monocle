@@ -26,7 +26,7 @@ require 'app/routes'
 require 'mail'
 
 require 'rack-google-analytics'
-use Rack::GoogleAnalytics, :tracker => 'UA-49704815-1'
+
 
 module Brisk
   class App < Sinatra::Application
@@ -40,7 +40,7 @@ module Brisk
     configure do
       disable :method_override
       disable :static
-
+      use Rack::GoogleAnalytics, :tracker => 'UA-49704815-1'
       
 
       set :protection, except: :session_hijacking
